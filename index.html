@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            text-align: justify;
+            margin: auto;
+
+            width: 100dvw;
+            height: 100dvh;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+        img {
+            width: 30dvw;
+        }
+        /* O container principal limita a área e ativa o scroll */
+        .carrossel-container {
+            width: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+            /* O container não deve ter display: flex inline, quem tem flex é a lista interna */
+        .carrossel-list {
+            display: flex;
+            gap: 24px; /* Espaço entre cada passo do tutorial */
+            list-style-type: decimal; /* Mantém a numeração automática do <ol> */
+            padding-left: 24px; 
+            margin: 0;
+        }
+
+            /* Configuração do slide: mantém os 30dvw e alinha texto acima da imagem */
+        .carrossel-item {
+            width: 30dvw;
+            flex: 0 0 30dvw; /* Força o navegador a manter exatamente os 30dvw */
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+            /* Proteção para as imagens não esticarem */
+        .carrossel-item img {
+            width: 100%;
+            height: auto; /* Mantém a proporção original da foto */
+            object-fit: contain; /* Garante que a imagem inteira apareça sem cortes */
+            border-radius: 8px; /* Opcional: deixa as bordas das prints arredondadas */
+            margin-top: 8px;
+        }
+
+            /* Ajuste para o passo 3 que possui dois ícones lado a lado */
+        .image-group {
+            display: flex;
+            gap: 8px;
+        }
+            .image-group img {
+            width: calc(50% - 4px);
+        }
+        button {
+            border-style: solid;
+            border-color: gray;
+            border-radius: 5px;
+
+            background-color: rgb(0, 159, 0);
+            color: white;
+
+            height: 5dvh;
+        }
+        #showTutorialBtn {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Mobile (by Dash)</h1>
+    <hr>
+
+    <h3>Download abaixo:</h3>
+
+    <p><a href="modpack/mods.zip"><button>Baixar modpack (ver 0.1.0)</button></a></p>
+
+    <p id="showTutorialBtn">Não sabe como instalar o modpack? Clique aqui!</p>
+
+    <div id="tutorial" class="carrossel-container" style="display: none;">
+        <h4>Siga os passos abaixo:</h4>
+        <ol class="carrossel-list">
+            
+            <li class="carrossel-item">
+            <p><b>Baixe</b> o modpack clicando no botão acima.</p>
+            <img src="images/T1.jpeg" alt="t1">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Extraia o arquivo ZIP</p>
+            <img src="images/T2.jpeg" alt="t2">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Abra o seu launcher mobile de preferência</p>
+            <!-- Agrupando as duas imagens do mesmo passo lado a lado -->
+            <div class="image-group">
+                <img src="images/MJLaunhcer-icon.png" alt="MJLauncher">
+                <img src="images/pojav-icon.webp" alt="Pojav">
+            </div>
+            </li>
+
+            <li class="carrossel-item">
+            <p>Selecione criar novo exemplo (instancia)</p>
+            <img src="images/T3.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Selecione instancia Fabric</p>
+            <img src="images/T4.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Use as exatas versões abaixo (jogo 1.20.1 e fabric 0.19.3 padrão)</p>
+            <img src="images/T5.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Salve a instancia, volte ao menu inicial e clique no icone do lápis</p>
+            <img src="images/T6.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Clique em renderizador</p>
+            <img src="images/T7.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Escolha um dos três abaixo (Zink recomendado, freeadreno somente em aparelhos Snapdragon)</p>
+            <img src="images/T8.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p><b>Salve e clique em jogar para carregar as pastas, pode sair do jogo assim que ver o menu</b></p>
+            </li>
+
+            <li class="carrossel-item">
+            <p>No menu inicial, com a instancia selecionada, abra o diretorio</p>
+            <img src="images/T9.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Abra a barra lateral</p>
+            <img src="images/T10.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Vá até downloads (ou onde sua pasta mods estiver)</p>
+            <img src="images/T11.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Selecione <b>todos</b> os mods e copie-os</p>
+            <img src="images/T12.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Procure o launcher na barra lateral</p>
+            <img src="images/T13.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Procure a pasta <b>instances</b></p>
+            <img src="images/T15.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Procure a pasta com o nome do loader e versão (fabric-loader-0.19.3...)</p>
+            <img src="images/T14.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Procure a pasta <b>mods</b> e cole todos os mods lá dentro</p>
+            <img src="images/T16.jpeg" alt="">
+            </li>
+
+            <li class="carrossel-item">
+            <p>Volte ao menu inicial e basta clicar em jogar!</p>
+            </li>
+        </ol>
+    </div>
+
+
+    <script>
+        const showTutorial = document.querySelector('#showTutorialBtn');
+        const tutorial = document.querySelector('#tutorial');
+
+        showTutorial.addEventListener('click', () => {
+            tutorial.style.display === 'flex' ? tutorial.style.display = 'none' : tutorial.style.display = 'flex';
+        });
+        
+    </script>
+</body>
+</html>
